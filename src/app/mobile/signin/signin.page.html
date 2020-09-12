@@ -1,0 +1,42 @@
+<ion-header>
+  <app-sub-header [name]="'Sign In'"></app-sub-header>
+</ion-header>
+
+<ion-content >
+  <div class="container p-1 border shadow">
+    <div class="image-container"> 
+      <img src="/assets/images/logo.png" class="logo">
+    </div>
+    <div class="">
+        <form [formGroup]="signinForm" (ngSubmit)="onSignin()">
+          <ion-item lines="full">
+            <ion-label position="floating">Email or Phone
+            </ion-label>
+            <ion-input type="text" placeholder="Email or Phone" formControlName="email" ></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signinForm.controls.email.touched && signinForm.controls.email.errors">
+              <span *ngIf="signinForm.controls.email.errors.required">
+                  This Field is Required
+              </span>
+          </span>
+          
+          <ion-item lines="full">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="text" placeholder="Password" formControlName="password" ></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signinForm.controls.password.touched && signinForm.controls.password.errors">
+            <span *ngIf="signinForm.controls.password.errors.required">
+                This Field is Required
+            </span>
+        </span>
+        
+          <ion-item lines="none" class="small ion-text-end text-danger" [routerLink]="['/tabs/forget-password']" >
+            Forget password ?
+          </ion-item>
+          <ion-button color="success" type="submit" [disabled]="!signinForm.valid" class="w-100">{{ disabled ? 'Loading...': 'Sign in' }}</ion-button>
+        </form>
+        <div class="small mt-3 mb-3 text-center"> Don't have an Account? <span class="text-success" [routerLink]="['/tabs/signup']">Signup here</span></div>
+    </div>
+  </div>
+
+</ion-content>

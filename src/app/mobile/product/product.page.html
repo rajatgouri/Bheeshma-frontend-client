@@ -1,0 +1,88 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content>
+  <ion-template *ngIf="loader">
+    <app-loader></app-loader>
+  </ion-template>
+
+
+  <ion-template *ngIf="!loader" class="content">
+
+    <div>
+      <ion-searchbar type="text" debounce="500"  [placeholder]='"Search "+ totalProducts +" products"'
+        [(ngModel)]='searchbar' (ionChange)="getItems($event)"></ion-searchbar>
+    </div>
+
+    <div class="container">
+      <div class="scroll" scrollX="true">
+        <ion-chip (click)="clearChips()" color=danger>All</ion-chip>
+
+        <ion-chip *ngFor="let chip of chips; let i = index" (click)="applyChips(chip)">{{chip}}
+        </ion-chip>
+      </div>
+    </div>
+
+
+    <ion-item lines="full">
+      <ion-label color="medium">{{ products.length }} Products Available</ion-label>
+
+      <!-- <ion-item tapable="true" lines="none" class="ion-text-center actions" [routerLink]="['/tabs/filter']">
+        <ion-icon name="filter-outline"></ion-icon>
+        <ion-label class="ml-1 item-label" >Filter</ion-label>
+      </ion-item> -->
+    </ion-item>
+
+    <ion-template *ngIf="products.length == 0">
+      <div class="no-product text-center">
+        <div class="notebook-container">
+          <img src="/assets/images/cart.png" class="rounded-circle" height="100" ><br>
+          <span>No Products Found!</span>
+        </div>
+      </div>
+    </ion-template>
+
+
+    <ion-template class="ion-margin-top" *ngIf="products.length > 0">
+      <ion-list class="border" *ngFor="let item of products; let i = index">
+
+        <ion-row>
+          <ion-col size="4" class="align-self-center">
+            <ion-badge color="danger">{{ 100 - ((item.price *100) / item.mrp) | number: '1.0-0' }} % Off</ion-badge>
+            <img [src]="item.image" height="120">
+          </ion-col>
+
+          <ion-col size="8">
+            <ion-item lines="none">
+              <ion-label class="product-name" position="floating">
+                {{item.name}}
+              </ion-label>
+              <ion-select [placeholder]="item.weight + ' ' + item.measure"  [(ngModel)]="item.weight"  (ionChange)="onchangeQuantity($event, item)"  [ngClass]= "device === 'android' ? 'ion-select-android' : (device === 'ios' ? 'ion-select-ios': 'hello')">
+                <ion-select-option *ngFor="let packet of item.packets" [value]="packet.weight" >{{packet.weight}} {{item.measure}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label color="dark">
+                <p class="small">MRP: <s><i>Rs {{item.mrp}}</i></s></p>
+                <p>Rs {{item.price}}</p>
+              </ion-label>
+
+              <ion-button *ngIf="!item.addedToCart" color="danger" (click)="AddToCart(item._id)" [disabled]="disabledButton" class="add">Add</ion-button>
+
+              <span *ngIf="item.addedToCart">
+                <input type="button" value="-" class="button-minus" (click)="decreaseQuantity(item._id)" [disabled]="item.disabledQuantity">
+                <input type="number" step="1" disabled [value]="item.quantity" class="quantity">
+                <input type="button" value="+" class="button-plus" (click)="increaseQuantity(item._id)" [disabled]="item.disabledQuantity">
+              </span>
+            </ion-item>
+
+          </ion-col>
+
+        </ion-row>
+      </ion-list>
+    </ion-template>
+  </ion-template>
+
+</ion-content>

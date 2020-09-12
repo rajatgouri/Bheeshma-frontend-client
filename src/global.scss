@@ -1,0 +1,120 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+    --ion-color-primary: #8CD315 !important ;
+}
+
+.border {
+    border: 1px solid #eae8e8;
+}
+
+
+.swiper-pagination-bullet-active {
+    background: var(--ion-color-success, #8CD315) !important;
+}
+
+.bg-sucess {
+    background-color:  #8CD315 !important;
+}
+
+.shadow {
+    box-shadow: 4px 3px 5px #aaaaaa;
+}
+
+
+.bg-success {
+    background-color: #8CD315 !important;
+}
+
+// .bg-white {
+//     background: #ffffff !important;
+// }
+// .bg-medium {
+//     background: #f1eeee !important;
+// }
+// .utility-bg-white {
+//     --background: #ffffff !important;
+// }
+// .utility-bg-medium {
+//     --background: #f1eeee !important;
+// }
+
+
+
+.arrow-back {
+    font-size: 25px;
+}
+
+
+.item-has-focus.label-stacked.sc-ion-label-md-h,
+.item-has-focus .label-stacked.sc-ion-label-md-h,
+.item-has-focus.label-floating.sc-ion-label-md-h,
+.item-has-focus .label-floating.sc-ion-label-md-h {
+    color:  var(--ion-color-success, #8CD315) !important;
+}
+
+
+ion-item {
+    --border-color: var(--ion-color-success, #8CD315 !important);
+}
+
+ion-text, ion-row , ion-col, span , a, div, ion-label , ion-icon, h1, h2, h3, h4, h5, h6 , ion-item {
+    outline-width: 0 ;
+}
+
+.product-name {
+    font-weight: 500 !important;
+    font-size: 20px !important;
+}
+
+.text-success {
+    color: #8CD315!important;
+}
+
+.btn-success {
+    background-color: #8CD315!important;
+    border-color: #8CD315 !important;
+}
+
+.container {
+    max-width: 90% !important;
+}
+
+
+.delivery-alert {
+
+    .alert-wrapper {
+        width: 100%;   
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        max-width: 100% !important;
+    }   
+}

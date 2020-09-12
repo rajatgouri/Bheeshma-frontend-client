@@ -1,0 +1,348 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content >
+
+  <!-- banner start -->
+  <ion-slides class="banner" pager="false" #bannerSlider [options]="slideBannerOpts"
+    (ionSlidesDidLoad)="slidesDidLoad(bannerSlider)"  autoplayDisableOnInteraction = "false">
+    <ion-slide>
+      <img src="/assets/images/Banner-1.jpg" height="300">
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/images/Banner-2.jpg" height="300">
+    </ion-slide>
+    
+    <ion-slide>
+      <img src="/assets/images/banner-03.jpg" height="300">
+    </ion-slide>
+    
+  </ion-slides>
+  <!-- banner end -->
+
+  <!-- sub-banner start -->
+  <ion-slides class="sub-banner" pager="true">
+    <ion-slide>
+      <img
+        src="/assets/images/Sub-Banner-1.jpg"
+        height="30">
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/images/sub-banner-2.webp"
+        height="30">
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/images/sub-banner-3.webp"
+        height="30">
+    </ion-slide>
+  </ion-slides>
+  <!-- sub-banner end -->
+
+
+  <!-- categories start -->
+  <ion-grid class="shadow" >
+    <ion-row>
+      <ion-col class="bg-success ion-text-center heading" [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Categories</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Food_grains_oils.jpg" [routerLink]="['/tabs/category/Food_Grains_Oils_Masala']" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Bakery.jpg" [routerLink]="['/tabs/category/Bakery_Cakes_Dairy']" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Gourmet.jpg" [routerLink]="['/tabs/category/Gourmet_World_Food']" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Cleaning.jpg" [routerLink]="['/tabs/category/Cleaning_Households']" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Beverages.jpg" [routerLink]="['/tabs/category/Beverages_Drinks']" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Eggs_Meat.jpg" [routerLink]="['/tabs/category/Eggs_Meat']" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Garden_pets.jpg" [routerLink]="['/tabs/category/Garden_Pets']" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Chips-category.jpg" [routerLink]="['/tabs/category/Chips_Namkeen_Popcorn']" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="4" class="ion-text-center border">
+        <img
+          src="/assets/images/Baby_care.jpg" [routerLink]="['/tabs/category/Baby_Care']" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- categories end -->
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img class="small-banner" src="/assets/images/small-banner-01.jpg">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- Mood Busters start -->
+  <ion-grid class="shadow">
+    <ion-row>
+      <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Mood Busters</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Chips.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Namkeen.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns" >
+        <img
+          src="/assets/images/Biscuits.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Ready_to_Cook.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- Mood Busters end -->
+  
+
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img class="small-banner" src="/assets/images/small-banner-3.png" >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- FOod Grains, Oils and Masala -->
+  <ion-grid class="shadow">
+    <ion-row>
+      <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Grains, Oils & Masala</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Atta.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Rice.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Oils.jpg" class="h-100 w-100">
+      </ion-col> 
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Pulses.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Dry_Fruits.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Salts.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+<!-- Dairy -->
+<ion-grid class="shadow">
+  <ion-row>
+    <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+      <ion-title class="font-italic" color="light">Dairy Products</ion-title>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-sm="6" class="ion-text-center border columns">
+      <img
+        src="/assets/images/Cheese.jpg" class="h-100 w-100">
+    </ion-col>
+    <ion-col size-sm="6" class="ion-text-center border columns">
+      <img
+        src="/assets/images/Paneer.jpg" class="h-100 w-100">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-sm="6" class="ion-text-center border columns">
+      <img
+        src="/assets/images/Milk.jpg" class="h-100 w-100">
+    </ion-col>
+    <ion-col size-sm="6" class="ion-text-center border columns">
+      <img
+        src="/assets/images/Lassi.jpg" class="h-100 w-100">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+  <!-- Drink and Beverages -->
+  <ion-grid class="shadow">
+    <ion-row>
+      <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Drinks & Beverages</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Health.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Juices.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Tea.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Coffee.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Soft_Drinks.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Syrups.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+<!-- Cleaning and Households -->
+  <ion-grid class="shadow">
+    <ion-row>
+      <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Cleaning and Households</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Detergents.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Liquid_Detergent.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Cleaners.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Pooja.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Daily Essentials -->
+  <ion-grid class="shadow">
+    <ion-row>
+      <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Daily Essentials</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Hair_Oil.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Handwash.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Soaps.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Sanitary.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+
+  <!-- Eggs and Meat -->
+  <ion-grid class="shadow">
+    <ion-row>
+      <ion-col class="bg-success ion-text-center " [ngClass]="device === 'android' ? 'heading-android' : (device === 'ios' ? 'heading-ios': 'heading-web')">
+        <ion-title class="font-italic" color="light">Eggs and Meat</ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Eggs.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Chicken.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Fish.jpg" class="h-100 w-100">
+      </ion-col>
+      <ion-col size-sm="6" class="ion-text-center border columns">
+        <img
+          src="/assets/images/Mutton.jpg" class="h-100 w-100">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+
+
+</ion-content>

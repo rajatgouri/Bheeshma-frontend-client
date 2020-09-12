@@ -1,0 +1,40 @@
+ion-toolbar{
+    ion-buttons{
+        ion-button{
+            width: auto;
+            ion-icon{
+                font-size: 25px;
+            }
+        }
+    }
+}
+.search-container-mobile {
+    display: none;
+}
+
+
+.logo {
+    height: 35px;
+    width: 130px;
+}
+
+
+.border {
+    border: 1px solid
+}
+
+
+
+@media screen and (max-width: 991px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+
+@media screen and (max-width: 576px) {
+    
+}
+
+

@@ -1,0 +1,34 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content >
+
+  <ion-template *ngIf="loader">
+    <app-loader></app-loader>
+  </ion-template>
+
+  <ion-template *ngIf="!loader">
+    <ion-list class="accordion-list" *ngFor=" let category of categories; let i = index" >
+      <ion-item (click)="toggleSection(i)" >
+        <ion-label >
+          <img [src]="category.image" height="40" width="40">
+          <span class="ml-3 " >{{ category.name }}</span>
+          <img src="/assets/icon/circle_chevron_up_arrow.png" class="icon mt-2" height="16" *ngIf="category.open">
+          <img src="/assets/icon/circle_chevron_down_arrow.png" class="icon mt-2" height="16" *ngIf="!category.open">
+  
+        </ion-label>
+      </ion-item>
+      <div *ngIf="category.open">
+        <ion-item *ngFor="let sub_category of category.items; let i = index" [routerLink]="['/tabs/products']" [queryParams]="{category: category.tag, subCategory: sub_category.param }" routerLinkActive="router-link-active"> 
+          <ion-label class="sub-item">{{ sub_category.name }}</ion-label>
+        </ion-item> 
+      </div>
+  </ion-list>
+  </ion-template>
+
+  <!-- <ion-template *ngIf="!loader">
+    
+  </ion-template> -->
+  
+</ion-content>

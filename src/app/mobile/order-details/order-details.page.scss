@@ -1,0 +1,27 @@
+ion-content{
+    --background:#ffffff;
+    .container{
+        width: 100% !important; 
+        height: 190px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        ion-avatar{
+            width: 120px;
+            height: 120px;
+        }
+        
+    }
+    .order-container {
+        border-top: 1px solid lightgrey;
+    }
+
+    .price-button {
+        position: absolute;
+        bottom: 0;
+    }
+    .text-success {
+        color: #8CD314 !important;
+    }
+}

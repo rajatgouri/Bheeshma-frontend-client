@@ -1,0 +1,86 @@
+<div>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <img src="/assets/icon/back_arrow.jpg" height="50" width="50" (click)="dismissModal()">
+      </ion-buttons>
+
+      <ion-title color="success" class="ion-justify-content-center text-center mr-5">
+        Details
+      </ion-title>
+
+    </ion-toolbar>
+
+  </ion-header>
+  <ion-content>
+
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" placeholder="Name"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Image Url</ion-label>
+        <ion-input type="text" placeholder="Image"></ion-input>
+      </ion-item>
+      <ion-row >
+        <ion-col size="3" class="p-0">
+          <ion-item lines="full">
+            <ion-label position="floating">Weight</ion-label>
+            <ion-input type="number" placeholder="Weight"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3" class="p-0">
+          <ion-item lines="full">
+            <ion-label position="floating">Measure In</ion-label>
+            <ion-input type="text" placeholder="Measure In"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3" class="p-0">
+          <ion-item lines="full">
+            <ion-label position="floating">Price</ion-label>
+            <ion-input type="number" placeholder="Price" min="0"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3" class="p-0">
+          <ion-item lines="full">
+            <ion-label position="floating">Mrp</ion-label>
+            <ion-input type="number" placeholder="Mrp" min="0"></ion-input>
+          </ion-item>
+        </ion-col>
+        
+        
+
+      </ion-row>
+    
+      <ion-item lines="full">
+        <ion-label position="floating">Available</ion-label>
+        <ion-select placeholder="Available" >
+          <ion-select-option  value="false">No</ion-select-option>
+          <ion-select-option  value="true">yes</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-row>
+        <ion-col size="6">
+          <ion-item lines="full">
+            <ion-label position="floating">Category</ion-label>
+            <ion-select placeholder="" (ionChange)="onSelectCategory($event)">
+              <ion-select-option *ngFor="let category of categories; let i = index" [value]="category.name">{{ category.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-item lines="full">
+            <ion-label position="floating">Sub Category</ion-label>
+            <ion-select placeholder="">
+              <ion-select-option *ngFor="let subCategory of subCategories; let i = index" [value]="subCategory.name">{{ subCategory.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button class="w-100" color="success">Update Product</ion-button>
+    </form>
+  </ion-content>
+</div>

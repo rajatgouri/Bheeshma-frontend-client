@@ -1,0 +1,50 @@
+<ion-header>
+  <app-sub-header [name]="'Order Details'"></app-sub-header>
+</ion-header>
+
+<ion-content >
+  <ion-template *ngIf="loader">
+    <app-loader></app-loader>
+  </ion-template>
+
+  <ion-template *ngIf="!loader"> 
+    
+    <div class="ion-text-center  p-3 container">
+      <ion-avatar >
+        <img src="/assets/images/cart.png"/>
+      </ion-avatar>
+    </div>
+
+
+      <div class="order-container">
+        <ion-item class="profile_item " lines="full">
+          <ion-label >Order ID</ion-label>
+          <ion-text color="success" >{{orderDetails._id}}</ion-text>
+        </ion-item>
+        <ion-item class="profile_item " lines="full">
+          <ion-label >Total</ion-label>
+          <ion-text color="success" >{{orderDetails.total}} ₹</ion-text>
+        </ion-item>
+        <table class="table w-100">
+          <thead>
+            <tr>
+              <th class="text-success">Product</th>
+              <th class="text-success">Quantity</th>
+              <th class="text-success">Price </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let product of orderDetails.products" class="border">
+              <td>{{ product.product.name.length > 20 ? (product.product.name  | slice: 0: 20 ) + '...'  : product.name }}</td>
+              <td>{{product.weight}} {{product.product.measure}} * {{product.quantity}}</td>
+              <td>{{product.price}} </td>
+            </tr>
+          </tbody>
+          
+        </table>
+        
+      </div>
+      
+      
+  </ion-template>
+</ion-content>

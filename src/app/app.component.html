@@ -1,0 +1,45 @@
+<ion-app>
+  <div *ngIf="isDesktop === false">
+    <ion-menu side="start" menuId="first" contentId="main">
+      <ion-header>
+        <ion-toolbar color="success">
+          <ion-title class="header ion-text-center">
+            <ion-button color="light" class="login" *ngIf="!user"  (click)="link('signin')">Login</ion-button>
+            <ion-button color="light" class="signup" *ngIf="!user" (click)="link('signup')">Signup</ion-button>
+            <span *ngIf="user" class="text-capitalize"> {{user.firstname}}</span>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item lines="full" *ngIf="user">
+            <ion-label># {{userInfo}}</ion-label>
+            <img src="/assets/icon/pencil-icon.png"  height="20" width="20" (click)="updateAccount()">
+            <!-- <ion-icon slot="end" class="app-pencil-icon" color="success" name="pencil-outline" (click)="openModal()"></ion-icon> -->
+          </ion-item>
+          <ion-item lines="full" (click)="link('home')">
+            <ion-label >Home</ion-label>
+          </ion-item>
+          <ion-item lines="full" (click)="link('categories')">
+            <ion-label>Categories</ion-label>
+
+          </ion-item>
+          <ion-item lines="full" (click)="link('account')">
+            <ion-label>Account</ion-label>
+
+          </ion-item>
+          <ion-item lines="full" *ngIf="user">
+            <ion-label (click)="logout()">Logout</ion-label>
+
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </div>
+  <div *ngIf="isDesktop === true"> 
+    <ion-router-outlet ></ion-router-outlet>
+  </div>
+</ion-app>
+
+<!-- <app-header></app-header> -->

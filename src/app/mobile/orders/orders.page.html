@@ -1,0 +1,43 @@
+<ion-header>
+  <app-sub-header [name]="'My Orders'"></app-sub-header>
+</ion-header>
+
+<ion-content >
+
+  <ion-template *ngIf="loader">
+    <app-loader></app-loader>
+  </ion-template>
+
+  <ion-template *ngIf="orders.length <= 0 && !loader">
+    <div class="no-order text-center">
+      <div class="notebook-container">
+        <img src="/assets/images/notebook_with_pen.jpg" height="100" ><br>
+        <span>No Orders Yet!</span>
+        
+      </div>
+      
+    </div>
+  </ion-template>
+  
+  <ion-template *ngIf="orders.length >= 0 && !loader">
+      <ion-item lines="full" *ngFor="let order of orders; let i = index">
+        <ion-label>
+          <h4><b>Order ID</b> {{order._id}}</h4>
+          <span class="small"><b>Status</b> 
+            <span 
+              [ngClass]="{'text-danger': order.status === 'Accepted', 'text-warning': order.status === 'In Progress', 'text-success': order.status === 'Completed'}"
+             >
+              
+              {{ order.status  }}
+            </span>
+          </span><br>
+          <span class="small"><b>Date</b> {{ order.createdAt | date: 'mediumDate' }}</span>
+
+
+        </ion-label>
+        <ion-button color="success" [routerLink]="['/tabs/order-details/' + order._id]">
+          view
+        </ion-button>
+      </ion-item>
+  </ion-template>
+</ion-content>

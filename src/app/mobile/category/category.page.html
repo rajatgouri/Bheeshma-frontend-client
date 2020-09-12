@@ -1,0 +1,13 @@
+<ion-header>
+  <app-sub-header [name]="category"></app-sub-header>
+</ion-header>
+<ion-content >
+  <ion-list  >
+      
+      <ion-item lines="full" class="p-1" *ngFor="let category of categories"> 
+        <ion-label class="sub-item">{{category.name}}</ion-label>
+      </ion-item>
+      
+</ion-list>
+
+</ion-content>

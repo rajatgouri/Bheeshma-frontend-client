@@ -1,0 +1,72 @@
+<ion-header>
+  <app-sub-header [name]="'Basket'"></app-sub-header>
+</ion-header>
+
+<ion-content >
+
+  <ion-template *ngIf="loader">
+    <app-loader></app-loader>
+  </ion-template>
+
+  <ion-template *ngIf="!loader">
+
+
+    <div *ngIf="cart.length <= 0"> 
+      <div class="no-order text-center">
+        <div class="notebook-container">
+          <img class="rounded-circle" src="/assets/images/cart.png" height="100" ><br>
+          <span>Please Shop!</span>
+          
+        </div>
+        
+      </div>
+    </div>
+    <div *ngIf="cart.length > 0" class="bucket-container" >
+      <ion-list class="border" *ngFor="let item of cart; let i = index">
+
+        <ion-row>
+          <ion-col size="3" class="align-self-center text-center">
+            <img [src]="item.productId.image" height="70">
+          </ion-col>
+
+          <ion-col size="9" >
+            <ion-item lines="none">
+                <ion-label>
+                  <h4>{{item.productId.name}}</h4>
+                </ion-label>
+            </ion-item>
+
+            <ion-item lines="none" style="margin-top: -10px">
+              <ion-label color="dark">
+                <span class="small" style="display: block;">{{item.weight}} {{item.productId.measure}}</span>
+                <span class="small" style="display: block;">{{item.totalPrice}} Rs</span>
+              </ion-label>
+
+              
+              <span >
+
+                <input type="button" value="-" class="button-minus" (click)="decreaseQuantity(item)">
+                <input type="number" step="1" disabled [value]="item.quantity" class="quantity">
+                <input type="button" value="+" class="button-plus" (click)="increaseQuantity(item)">
+              </span>
+            </ion-item>
+
+          </ion-col>
+
+        </ion-row>
+      </ion-list>
+
+      <ion-row class="border w-100 checkout-button">
+        <ion-col size="8">
+          <span class="small">Total {{totalPrice}} ₹</span><br>
+          <span class="small">Delivery Charges 10 ₹ </span><br>
+          
+        </ion-col>
+        <ion-col size="4">
+          <ion-button class="w-100" class="small" [disabled]="totalPrice < 100" color="success" (click)="onCheckout()">checkout</ion-button>
+        </ion-col>
+
+      </ion-row>
+    </div>
+  </ion-template>
+</ion-content>

@@ -1,0 +1,127 @@
+<ion-header>
+  <app-sub-header [name]="pageName"></app-sub-header>
+</ion-header>
+
+<ion-content >
+  <div class="container p-1 border shadow">
+    <div class="image-container"> 
+      <img src="/assets/images/logo.png" class="logo">
+    </div>
+    <div class="">
+        <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+          <ion-item lines="full">
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input type="text" placeholder="First Name"  formControlName="firstName"></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.firstName.touched && signupForm.controls.firstName.errors">
+            <span *ngIf="signupForm.controls.firstName.errors.required">
+                This Field is Required
+            </span>
+        </span>
+          <ion-item lines="full">
+            <ion-label position="floating">last Name</ion-label>
+            <ion-input type="text" placeholder="last Name"  formControlName="lastName"></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.lastName.touched && signupForm.controls.lastName.errors">
+            <span *ngIf="signupForm.controls.lastName.errors.required">
+                This Field is Required
+            </span>
+        </span>
+          <ion-item lines="full">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" placeholder="Email"  formControlName="email"></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.email.touched && signupForm.controls.email.errors">
+            <span *ngIf="signupForm.controls.email.errors.required">
+                This Field is Required
+            </span>
+            <span *ngIf="signupForm.controls.email.errors.email">
+              This Field must be an Email
+          </span>
+          </span>
+          <ion-item lines="full" *ngIf="!editMode">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="text" placeholder="Password"  formControlName="password"></ion-input>
+          </ion-item>
+          <span *ngIf="!editMode"> 
+            <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.password.touched && signupForm.controls.password.errors">
+              <span *ngIf="signupForm.controls.password.errors.required">
+                  This Field is Required
+              </span>
+            </span>
+          </span>
+          
+          <ion-item lines="full">
+            <ion-label position="floating">Phone</ion-label>
+            <ion-input type="text" placeholder="Phone"  formControlName="phone"></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.phone.touched && signupForm.controls.phone.errors">
+            <span *ngIf="signupForm.controls.phone.errors.required">
+                This Field is Required
+            </span>
+            <span *ngIf="signupForm.controls.phone.errors.pattern || signupForm.controls.phone.errors.minLength || signupForm.controls.phone.errors.minLength">
+              Phone must be of 10 digits
+            </span> 
+            
+          </span>
+
+
+          <ion-row>
+            <ion-col size="3" class="pl-0">
+              <ion-item lines="full">
+                <ion-label position="floating"># No.</ion-label>
+                <ion-input type="text" placeholder="No"  formControlName="houseNumber"></ion-input>
+              </ion-item>
+              <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.houseNumber.touched && signupForm.controls.houseNumber.errors">
+                <span *ngIf="signupForm.controls.houseNumber.errors.required">
+                    Required
+                </span>
+                <span *ngIf="signupForm.controls.houseNumber.errors.pattern">
+                  Number
+              </span>
+              </span>
+            </ion-col>
+            <ion-col size="9" class="pl-0">
+              <ion-item lines="full">
+                <ion-label position="floating">Street Name</ion-label>
+                <ion-input type="text" placeholder="Street Name" formControlName="street" ></ion-input>
+              </ion-item>
+              <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.street.touched && signupForm.controls.street.errors">
+                <span *ngIf="signupForm.controls.street.errors.required">
+                    This Field is Required
+                </span>
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-item lines="full">
+            <ion-label position="floating">City</ion-label>
+            <ion-input type="text" placeholder="City" (ionChange)="getCities($event)" formControlName="city"></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.city.touched && signupForm.controls.city.errors">
+            <span *ngIf="signupForm.controls.city.errors.required">
+                This Field is Required
+            </span>
+          </span>
+          <ion-list *ngIf="isItemAvailable" class="suggestions">
+            <ion-item  *ngFor="let city of sortedCities; let i = index" lines="full" (click)="onSuggestionSelected(i)">{{ city.name }}</ion-item>
+          </ion-list>
+          <ion-item lines="full">
+            <ion-label position="floating">Pincode</ion-label>
+            <ion-input type="text" placeholder="Pincode" (ionChange)="validatePincode()" formControlName="pincode"></ion-input>
+          </ion-item>
+          <span class="pl-1 pr-1 small text-danger" *ngIf="signupForm.controls.pincode.touched && signupForm.controls.pincode.errors">
+            <span *ngIf="signupForm.controls.pincode.errors.required">
+                This Field is Required
+            </span>
+            <span *ngIf="signupForm.controls.pincode.errors.pincode">
+              This Field Has Invalid Pincode
+          </span>
+          </span>
+          <ion-button class="w-100" type="submit"  [disabled]="!signupForm.valid" color="success">{{disabled ? 'Loading...' : ( editMode? 'Update Details' : 'Sign up' )}}</ion-button>
+        </form>
+        
+        <div *ngIf="!editMode" class="small mt-3 mb-3 text-center"> Already have an Account? <span class="text-success" [routerLink]="['/tabs/signup']">signup here</span></div>
+    </div>
+  </div>
+
+</ion-content>

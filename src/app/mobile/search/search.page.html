@@ -1,0 +1,16 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
+
+<ion-content >
+
+  <ion-searchbar type="text" debounce="500" placeholder="Search Categories" (ionChange)="getItems($event)" [(ngModel)]="searchbar"></ion-searchbar>
+  <ion-item *ngFor="let product of products">
+    <ion-label [routerLink]="['/tabs/products']" [queryParams]="{category: product.category, subCategory: product.subCategory , selectedProduct: product.name}" >
+      <h4>{{product.name}}</h4>
+      <span class="small">{{product.subCategory}}</span>
+
+    </ion-label>
+  </ion-item>
+
+</ion-content>

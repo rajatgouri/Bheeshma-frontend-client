@@ -1,0 +1,51 @@
+<ion-header>
+  <app-sub-header [name]="'Account'"></app-sub-header>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center  p-3 container">
+    <ion-avatar >
+      <img src="assets/images/avatar.png"/>
+    </ion-avatar>
+      <ion-item  lines="none" class="ion-text-center profile_data w-100" >
+        <ion-label color="dark">
+          <h2>
+            <b>{{user.firstName}} {{user.lastName}}</b>
+          </h2>
+          <p class="pt-2">
+            {{user.phone}}
+          </p>
+          <p>
+            {{user.email}}
+          </p>
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <div class="ion-padding-vertical border-top">
+      <ion-item class="profile_item mb-2" lines="full">
+        <ion-label >My Orders</ion-label>
+        <ion-text color="success" [routerLink]="['/tabs/orders']">View All</ion-text>
+      </ion-item>
+      <ion-item class="profile_item mb-2" lines="full">
+        <ion-label>Review and Feedback</ion-label>
+        <ion-text color="success">VIew All</ion-text>
+      </ion-item>
+      <ion-item class="profile_item mb-2" lines="full">
+        <ion-label>Terms and Policies</ion-label>
+        <img src="/assets/icon/front_arrow.jpg" class="right-arrow" height="50" width="50"  [routerLink]="['/tabs/terms-conditions']">
+        
+      </ion-item>
+    </div>
+
+    <div class="ion-padding-vertical profile_actions">
+      <ion-item class="profile_item mb-2" lines="full">
+        <ion-label>Acount Setting</ion-label>
+        <ion-icon name="settings"  color="success" [routerLink]="['/tabs/update-account/edit']" ></ion-icon>
+      </ion-item>
+      <ion-item class="profile_item mb-2" lines="full" (click)="onLogout()">
+        <ion-label >Logout</ion-label>
+        <ion-icon name="exit" color="success" ></ion-icon>
+      </ion-item>
+    </div>
+</ion-content>

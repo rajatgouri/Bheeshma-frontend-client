@@ -1,0 +1,58 @@
+ion-content{
+    
+    .content {
+        background-color: #eae8e866;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .bucket-container {
+        height: 95%;
+        overflow: auto;
+    }
+    
+    .no-order{
+        position: fixed;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+    }
+    
+    .notebook-container{
+        display: inline-block;
+        position: relative;
+        width: 150px;
+        height: 120px;
+        top: 30%;
+    }
+    
+  
+    
+    .checkout-button{
+        position: absolute;
+        bottom: 0;   
+    }
+    
+    
+
+    .button-minus, .button-plus {
+      width: 25px;
+      border-radius: 3px;
+      border: none !important;
+      outline-width: 0;
+    
+      background-color: var(--ion-color-success, #8CD315);
+      color: #fff
+    }
+
+    .quantity {
+      width: 25px;
+      border: none;
+      text-align: center;
+    }
+}
+
+
+
